@@ -7,15 +7,16 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,700;1,100;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,700;1,100;1,400&display=swap"
+    rel="stylesheet">
     <title>dev.finance$</title>
+    <script src="./js.js"></script>
 
 </head>
-
-
 
 <body>
     <header>
@@ -25,16 +26,23 @@
     </header>
 
     <main class="container">
-
         <section id="balance">
-            <h2>Balanço</h2>
+            <h2 class="sr-only">Balanço</h2>
+
             <div class="card">
-                <h3>Entradas</h3>
-                <p> R$ 5.000,00 </p>
+                <h3>
+                    <spam>Entradas</spam>
+                    <img src="./img/seta para cima.jpg" alt="Imagem de entradas" width="15px">
+                </h3>
+                <p>R$ 5.000,00</p>
             </div>
+
             <div class="card">
-                <h3>Saída</h3>
-                <p> R$ 2.000,00</p>
+                <h3>
+                    <spam>Saída</spam>
+                    <img src="./img/seta para baixo.jpg" alt="Imagem de Saídas" width="15px">
+                </h3>
+                <p>R$ 2.000,00</p>
             </div>
 
             <div class="card total">
@@ -43,48 +51,112 @@
             </div>
         </section>
 
-
-
         <section id="transaction">
-            <h2>Transações</h2>
-            <table id="data-table">
+            <h2 class="sr-only">Transações</h2>
 
+            <a href="#"
+            onclick="Modal.open()"
+            class="button-new">+ Nova Transação</a>
+
+            <table id="data-table">
                 <thead>
                     <tr>
-
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
-
+                        <th>
+                            <img src="./img/minus.jpg" alt="Remover Transação" width="20px">
+                        </th>
                     </tr>
                 </thead>
-
                 <tbody>
+
                     <tr>
                         <td class="descriptions">Luz</td>
                         <td class="expense">- R$ 500,00 </td>
                         <td class="date">23/01/2021</td>
+                        <td>
+                            <img src="./img/minus.jpg" alt="SINAL DE MENOS" width="20px">
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="descriptions">Criação de web site</td>
                         <td class="income">- R$ 5.000,00 </td>
                         <td class="date">23/01/2021</td>
+                        <td>
+                            <img src="./img/minus.jpg" alt="SINAL DE MENOS" width="20px">
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="descriptions">Internet</td>
                         <td class="expense">- R$ 200,00 </td>
                         <td class="date">23/01/2021</td>
+                        <td>
+                            <img src="./img/minus.jpg" alt="SINAL DE MENOS" width="20px">
+                        </td>
                     </tr>
-
                 </tbody>
             </table>
         </section>
     </main>
 
+    <!--Formulario Nova transação-->
+    <div class="modal-overlay">
+        <div class="modal">
+            <div id="form">
+                <h2>Nova transação</h2>
+                <form action="">
+
+                    <!--formulario parte descrição-->
+                    <div class="input-group">
+                        <label class="sr-only" for="description">Descrição </label>
+                        <input type="text" id="description" name="description" placeholder="Nome" />
+                    </div>
+
+                    <!--Formulario parte valor-->
+                    <div class="input-group">
+                        <label class="sr-only" 
+                        for="amount">Valor</label>
+                        <input 
+                        type="valor" 
+                        id="amount" 
+                        name="amount" 
+                        placeholder="valor" />
+                        <p>
+                            <small class="help">Use o sinal-(negativo) para despesas e (virgula) para casas decimais.</small>
+                        </p>
+                    </div>
+
+                    <!--Formulario parte Data -->
+                    <div class="input-group">
+                        <label class="sr-only" 
+                        for="date">Data </label>
+                        <input 
+                        type="date" 
+                        id="date" 
+                        name="date" 
+                        placeholder="00/00/0000" />
+                    </div>
+                    <!--fica em baixo da data, onde fica o botão de Salvar ou Cancelar-->
+                    <div class="input-group actions">
+                        <a href="#"
+                        onclick="Modal.close()"
+                        class="button-cancel">Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
     <footer class="container">
         <p>dev.finance$</p>
     </footer>
+    
+
 </body>
+
 </html>
